@@ -18,32 +18,33 @@ namespace ConsoleAppLesson2
             //Написать метод, возвращающий минимальное из трёх чисел.
 
             #endregion
-            Console.WriteLine();
-            Console.WriteLine("1 задача \n");
 
-            Console.Write("Введите первое число: ");
-            int firstNumber = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine();
+            //Console.WriteLine("1 задача \n");
 
-            Console.Write("Введите второе число: ");
-            int secondNumber = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Введите первое число: ");
+            //int firstNumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Введите третье число: ");
-            int thirdNumber = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Введите второе число: ");
+            //int secondNumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine();
+            //Console.Write("Введите третье число: ");
+            //int thirdNumber = Convert.ToInt32(Console.ReadLine());
 
-            string rezult = " - минимальное число";
+            //Console.WriteLine();
 
-            if (firstNumber < secondNumber && firstNumber < thirdNumber) 
-            {
-                Console.Write(firstNumber + rezult);
-            } else
-            {
-                Console.WriteLine((secondNumber < thirdNumber) ? (secondNumber + rezult): (thirdNumber + rezult));
-            }
+            //string rezult = " - минимальное число";
+
+            //if (firstNumber < secondNumber && firstNumber < thirdNumber) 
+            //{
+            //    Console.Write(firstNumber + rezult);
+            //} else
+            //{
+            //    Console.WriteLine((secondNumber < thirdNumber) ? (secondNumber + rezult): (thirdNumber + rezult));
+            //}
                    
 
-            Console.ReadKey();
+            //Console.ReadKey();
 
             #endregion
 
@@ -56,21 +57,30 @@ namespace ConsoleAppLesson2
 
             Console.WriteLine();
             Console.WriteLine("2 задача \n");
+            Console.WriteLine("Для завершения программы введите цифру - 0 \n");
 
-            
-            //Console.Write("Введите ваш вес: ");
-            //string wt = Console.ReadLine();
+            int number;
+            int odd = 0;
 
-            //Console.Write("Введите ваш рост: ");
-            //string heightInput = Console.ReadLine();
+            do
+            {               
+                Console.Write("Введите целое число: ");
+                number = Convert.ToInt32(Console.ReadLine());
+                if (number % 2 > 0 && number > 0)
+                {
+                    odd += number;
+                }
 
-            //double heightMan = Convert.ToDouble(heightInput) / 100;
+                if (number == 0)
+                {
+                    Console.WriteLine("Сумма все нечетных, положительных чисел равна - " + odd);
+                    break;
+                }
 
-            //double imt = Convert.ToDouble(wt) / (heightMan * heightMan);
+            } while (number != 0);
+                             
 
-            //Console.Write("Ваш индекс массы тела: " + imt);
-
-            //Console.ReadKey();
+            Console.ReadKey();
 
             #endregion
 
