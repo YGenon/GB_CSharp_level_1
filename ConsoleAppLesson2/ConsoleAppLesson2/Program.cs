@@ -42,7 +42,7 @@ namespace ConsoleAppLesson2
             //{
             //    Console.WriteLine((secondNumber < thirdNumber) ? (secondNumber + rezult): (thirdNumber + rezult));
             //}
-                   
+
 
             //Console.ReadKey();
 
@@ -55,51 +55,57 @@ namespace ConsoleAppLesson2
 
             #endregion
 
-            Console.WriteLine();
-            Console.WriteLine("2 задача \n");
-            Console.WriteLine("Для завершения программы введите цифру - 0 \n");
+            //Console.WriteLine();
+            //Console.WriteLine("2 задача \n");
+            //Console.WriteLine("Для завершения программы введите цифру - 0 \n");
 
-            int number;
-            int odd = 0;
+            //int number;
+            //int odd = 0;
 
-            do
-            {               
-                Console.Write("Введите целое число: ");
-                number = Convert.ToInt32(Console.ReadLine());
-                if (number % 2 > 0 && number > 0)
-                {
-                    odd += number;
-                }
+            //do
+            //{               
+            //    Console.Write("Введите целое число: ");
+            //    number = Convert.ToInt32(Console.ReadLine());
+            //    if (number % 2 > 0 && number > 0)
+            //    {
+            //        odd += number;
+            //    }
 
-                if (number == 0)
-                {
-                    Console.WriteLine("Сумма все нечетных, положительных чисел равна - " + odd);
-                    break;
-                }
+            //    if (number == 0)
+            //    {
+            //        Console.WriteLine("Сумма все нечетных, положительных чисел равна - " + odd);
+            //        break;
+            //    }
 
-            } while (number != 0);
-                             
+            //} while (number != 0);
 
-            Console.ReadKey();
+
+            //Console.ReadKey();
 
             #endregion
 
             #region 3 задача
             #region Условие задачи:
-            //а) Написать программу, которая выводит на экран ваше имя, фамилию и город проживания.
-            //б) *Сделать задание, только вывод организовать в центре экрана.
+
+            // Написать метод подсчета количества цифр числа.
 
             #endregion
 
-            //Console.Clear();
-            //Console.WriteLine("3 задача \n");
+            Console.Clear();
+            Console.WriteLine("3 задача \n");
 
-            //Console.WriteLine("a). Геннадий Ященко г. Москва");
+            Console.Write("Введите многозначное число: ");
+            string text = Console.ReadLine();
+            
+            int summa = 0;
 
-            //Console.SetCursorPosition(Console.WindowWidth / 2, Console.WindowHeight / 2);
-            //Console.WriteLine("б). Геннадий Ященко г. Москва");
+            for (int i = 0; i < text.Length; i++)
+            {
+                summa += Convert.ToInt32(text.Substring(i, 1));
+            }
 
-            //Console.ReadKey();
+            Console.WriteLine("Сумма цифр введенного числа равняется - " + summa);
+            Console.ReadKey();
 
             #endregion
         }
