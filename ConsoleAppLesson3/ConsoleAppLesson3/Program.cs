@@ -16,7 +16,7 @@ namespace ConsoleAppLesson3
     //    Предусмотреть методы  сложения,  вычитания,  умножения и  деления дробей.  
     //    Написать программу, демонстрирующую все разработанные элементы класса. 
 
-    //*Добавить свойства типа int для доступа к числителю и знаменателю;
+    //+*Добавить свойства типа int для доступа к числителю и знаменателю;
 
     //*Добавить свойство типа double только на чтение, чтобы получить десятичную дробь числа;
 
@@ -31,45 +31,70 @@ namespace ConsoleAppLesson3
     /// </summary>
     class Fraction
     {
-        private int numerator1;
-        private int denumerator1;
+        public int numerator;
+        public int denumerator;
+        public double number = FloatNumber;
 
-        private int numerator2;
-        private int denumerator2;
-
-        /// <summary>
-        /// Сумма дробей
-        /// </summary>
-        public Summa()
+        public Fraction()
         {
-
+        }
+        /// <summary>
+        /// Сложение дробей
+        /// </summary>
+        public string Summa(int numerator1, int denumerator1, int numerator2, int denumerator2)
+        {   
+            if (denumerator1 == denumerator2) { 
+                numerator = numerator1 + numerator2;
+                denumerator = denumerator1;
+            }
+            
+            return (Convert.ToString(numerator) + "/"+ Convert.ToString(denumerator));
         }
 
         /// <summary>
-        /// Разница дробей
+        /// Вычитание дробей
         /// </summary>
-        public Difference()
+        public string Difference(int numerator1, int denumerator1, int numerator2, int denumerator2)
         {
+            if (denumerator1 == denumerator2)
+            {
+                numerator = numerator1 - numerator2;
+                denumerator = denumerator1;
+            }
 
+            return (Convert.ToString(numerator) + "/" + Convert.ToString(denumerator));
         }
 
         /// <summary>
-        /// Произведение дробей
+        /// умножение дробей
         /// </summary>
-        public Multiply()
+        public string Multiply(int numerator1, int denumerator1, int numerator2, int denumerator2)
         {
+            numerator = numerator1 * numerator2;
+            denumerator = denumerator1 * denumerator2;
 
+            return (Convert.ToString(numerator) + "/" + Convert.ToString(denumerator));
         }
 
         /// <summary>
         /// Деление дробей
         /// </summary>
-        public Division()
+        public string Division(int numerator1, int denumerator1, int numerator2, int denumerator2)
         {
+            numerator = numerator1 * denumerator2;
+            denumerator = denumerator1 * numerator2;
 
+            return (Convert.ToString(numerator) + "/" + Convert.ToString(denumerator));
         }
 
+        public double FloatNumber()
+        {
+            numerator = 3;
+            denumerator = 9;
+            int rezult = numerator / denumerator;
+            return ((rezult));
 
+        }
     }
         
 
@@ -78,8 +103,22 @@ namespace ConsoleAppLesson3
     {
         static void Main(string[] args)
         {
+            int a = 2;
+            int b = 3;
 
-            
+            int a1 = 5;
+            int b1 = 3;
+
+            string fract = (Convert.ToString(a) + "/" + Convert.ToString(b) + " и " + Convert.ToString(a1) + "/" + Convert.ToString(b1));
+
+            Fraction f = new Fraction();
+
+            Console.WriteLine("\nЕсть две дроби - " + fract + "\n");
+            Console.WriteLine("Сумма дробей = " + f.Summa(a, b, a1, b1) + "\n");
+            Console.WriteLine("Вычитание дробей = " + f.Difference(a, b, a1, b1) + "\n");
+            Console.WriteLine("Произведение дробей = " + f.Multiply(a, b, a1, b1) + "\n");
+            Console.WriteLine("Деление дробей = " + f.Division(a, b, a1, b1) + "\n");
+            Console.ReadKey();
 
         }
     }
