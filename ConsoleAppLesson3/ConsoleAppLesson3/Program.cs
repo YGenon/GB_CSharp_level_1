@@ -39,7 +39,8 @@ namespace ConsoleAppLesson3
 
         int numerator;
         int denumerator;
-        //public double number = FloatNumber;
+        //public double FloatNumber;
+        
 
         public Fraction()
         {
@@ -93,13 +94,20 @@ namespace ConsoleAppLesson3
             return (Convert.ToString(numerator) + "/" + Convert.ToString(denumerator));
         }
 
-        //public double FloatNumber()
-        //{
-        //    numerator = 3;
-        //    denumerator = 9;
-        //    int rezult = numerator / denumerator;
-        //    return ((rezult));
+        public double FloatNumb()
+        {            
+            return Convert.ToDouble(numerator1 / denumerator1);
+        }
 
+        /// <summary>
+        /// свойство получения десятичной дроби числа
+        /// </summary>
+        //public double FloatNumber
+        //{
+        //    get {
+                
+        //        return (1,2);
+        //    }
         //}
     }
         
@@ -125,6 +133,7 @@ namespace ConsoleAppLesson3
             Console.WriteLine("Вычитание дробей = " + f.Difference() + "\n");
             Console.WriteLine("Произведение дробей = " + f.Multiply() + "\n");
             Console.WriteLine("Деление дробей = " + f.Division() + "\n");
+            Console.WriteLine("Десятичная дробь = " + f.FloatNumb() + "\n");
             Console.ReadKey();
 
         }
