@@ -16,13 +16,13 @@ namespace ConsoleAppLesson3
     //    Предусмотреть методы  сложения,  вычитания,  умножения и  деления дробей.  
     //    Написать программу, демонстрирующую все разработанные элементы класса. 
 
-    //+ *Добавить свойства типа int для доступа к числителю и знаменателю;
+    //*Добавить свойства типа int для доступа к числителю и знаменателю;
 
-    //+ *Добавить свойство типа double только на чтение, чтобы получить десятичную дробь числа;
+    //*Добавить свойство типа double только на чтение, чтобы получить десятичную дробь числа;
 
     //**Добавить  проверку,  чтобы знаменатель  не равнялся  0. Выбрасывать  исключение ArgumentException("Знаменатель не может быть равен 0");
 
-    //***Добавить упрощение дробей. 
+    
 
     #endregion
 
@@ -66,7 +66,7 @@ namespace ConsoleAppLesson3
                 } else
                 {
                     Console.WriteLine("\n Знаменатель не может быть равен 0 ! \n");
-                    in_denumerator1 = value;
+                    in_denumerator1 = value; // мне кажется это не правильно, но по другому сделать не смог
                 }
             }
         }
@@ -96,7 +96,7 @@ namespace ConsoleAppLesson3
                 else
                 {
                     Console.WriteLine("\n Знаменатель не может быть равен 0 и должен быть равен знаменателю первой дроби!\n");
-                    in_denumerator2 = value;
+                    in_denumerator2 = value; // мне кажется это не правильно, но по другому сделать не смог
                 }
             }
         }
@@ -115,25 +115,7 @@ namespace ConsoleAppLesson3
             return Convert.ToString(numerator) + "/" + Convert.ToString(denumerator);
         }
 
-
-        /// <summary>
-        /// Находим наибольший общий делитель (НОД)
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
-        public int NOD(int a, int b)
-        {
-            while ((a != 0) && (b != 0))
-            {
-                if (a > b)
-                    a -= b;
-                else
-                    b -= a;
-            }
-
-            return Math.Max(a, b);
-        }
+                
 
         /// <summary>
         /// Сложение дробей
@@ -143,17 +125,7 @@ namespace ConsoleAppLesson3
             if (in_denumerator1 == in_denumerator2) { 
                 return_numerator = in_numerator1 + in_numerator2;
                 return_denumerator = in_denumerator1;
-            }
-            //else
-            //{
-            //    int NOK = Math.Abs(in_denumerator1 * in_denumerator2) / NOD(in_denumerator1, in_denumerator2);
-
-            //    int extra_multiplier1 = NOK / in_denumerator1;
-            //    int extra_multiplier2 = NOK / in_denumerator2;
-
-            //    return_numerator = in_numerator1 * extra_multiplier1 + in_numerator2 * extra_multiplier2;
-            //    return_denumerator = in_denumerator1 * extra_multiplier1;
-            //}
+            }          
 
             return OutString(return_numerator, return_denumerator); 
         }
@@ -205,11 +177,7 @@ namespace ConsoleAppLesson3
                 return Convert.ToDouble(in_numerator1) / Convert.ToDouble(in_denumerator1);
             }
         }
-
-        public int Test()
-        {
-            return NOD(in_numerator1, in_numerator2);
-        }
+                
     }
 
     
@@ -240,12 +208,7 @@ namespace ConsoleAppLesson3
                 f.Denumerator2 = Convert.ToInt32(Console.ReadLine());
             } while (f.Denumerator2 == 0 || f.Denumerator1 != f.Denumerator2);
 
-            //f.Numerator1 = 34;
-            //f.Denumerator1 = 3;
-
-            //f.Numerator2 = 5;
-            //f.Denumerator2 = 3;
-            
+                        
             string fract = f.Numerator1 + "/" + f.Denumerator1 + " и " + f.Numerator2 + "/" + f.Denumerator2;            
 
             Console.WriteLine("\nЕсть две дроби - " + fract + "\n");
@@ -253,8 +216,8 @@ namespace ConsoleAppLesson3
             Console.WriteLine("Вычитание дробей = " + f.Difference() + "\n");
             Console.WriteLine("Произведение дробей = " + f.Multiply() + "\n");
             Console.WriteLine("Деление дробей = " + f.Division() + "\n");
-            Console.WriteLine("Десятичная дробь = " + f.FloatNumber + "\n");
-            Console.WriteLine("НОД = " + f.Test() + "\n");
+            Console.WriteLine("Десятичная первая дробь = " + f.FloatNumber + "\n");
+            
             Console.ReadKey();
 
         }
