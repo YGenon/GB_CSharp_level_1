@@ -10,8 +10,10 @@ namespace ConsoleAppLesson4
     {
         static void Main(string[] args)
         {
+            // Геннадий Ященко
 
             #region 1 задача
+
             #region Условие задачи
 
             //Дан целочисленный  массив из 20 элементов.Элементы массива  могут принимать  целые
@@ -26,6 +28,7 @@ namespace ConsoleAppLesson4
             Random random_number = new Random();
             int count = 0;
 
+            Console.Write("Решение 1 задачи:\n\n");
             Console.Write("Дан  массив: ");
 
             // заполняем массив с помощью генератора случайных чисел и выводим его на консоль
@@ -52,11 +55,30 @@ namespace ConsoleAppLesson4
                 else { Console.WriteLine("Пара " + number[j] + " и " + number[j + 1]); }
             }
 
-            Console.WriteLine("\nОтвет - " + count);
-
-            Console.ReadKey();
+            Console.WriteLine("\nОтвет - " + count + "\n");
 
             #endregion
+
+            #region 2 задача
+
+            #region Условие задачи
+
+            //Реализуйте задачу 1 в виде статического класса StaticClass;
+            //а)  Класс должен  содержать статический  метод,  который принимает на вход массив и решает задачу 1;
+            //б)  *Добавьте  статический метод для считывания массива из текстового файла. Метод должен возвращать массив целых чисел;
+            //в)**Добавьте обработку ситуации отсутствия файла на диске. 
+
+            #endregion
+
+
+            Console.Write("\nРешение 2 задачи:\n\nРезультат работы статического класса:\n\n");
+
+            Console.WriteLine("\nОтвет: " + MyArray.FindPair(number));
+
+            #endregion
+
+
+            Console.ReadKey();
         }
     }
 }
