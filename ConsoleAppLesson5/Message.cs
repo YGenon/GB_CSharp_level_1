@@ -10,15 +10,18 @@ namespace ConsoleAppLesson5
     {
         static private string newString;
         static string[] splitString;
+        static string lastSymbol;
 
         /// <summary>
         /// Создаем массив из слов сообщения
         /// </summary>
         /// <param name="s"></param>
-        static void MessageArray(string s)
+        static string[] MessageArray(string s)
         {
             char[] div = {' '};
-            splitString = s.Split(div);
+            string [] splitStringTmp = s.Split(div);
+
+            return splitStringTmp;
         }
 
 
@@ -29,7 +32,7 @@ namespace ConsoleAppLesson5
         /// <param name="a"></param>
         static public string OutWords(string s, int a)
         {
-            MessageArray(s);
+            splitString = MessageArray(s);
             
             for (int i = 0; i < splitString.Length; i++)
             {
@@ -48,13 +51,19 @@ namespace ConsoleAppLesson5
        /// <returns></returns>
         static public string DellWords(string s, string b)
         {
-            MessageArray(s);
+            splitString = MessageArray(s);
+
             newString = " ";
+
             for (int i = 0; i < splitString.Length; i++)
             {
                 // узнаем длинну слова
                 var a = splitString[i].Length;
-                var lastSymbol = splitString[i].Substring(a-1, 1);
+                if (a > 1)
+                {
+                     lastSymbol = splitString[i].Substring(a - 1, 1);
+                } else { lastSymbol = splitString[i]; }
+                    
                 if (lastSymbol != b) newString += " " + splitString[i];
             }
             return newString;           
@@ -69,23 +78,47 @@ namespace ConsoleAppLesson5
         /// <returns></returns>
         static public string LongWords(string s)
         {
-            MessageArray(s);
+            splitString = MessageArray(s);
+            newString = splitString[0];
+
+            for (int i = 0; i < splitString.Length; i++)
+           {
+                int a = splitString[i].Length;
+                int b = newString.Length;
+
+                if (a > b) newString = splitString[i];                
+            }
+            return (" " + newString);
+        }
+
+        
+        /// <summary>
+        /// Формирует строку с помощью StringBuilder из самых длинных слов сообщения
+        /// </summary>
+        /// <param name="s"></param>
+        static public string StringFromLongWords(string s)
+        {
+            splitString = MessageArray(s);
+
+            StringBuilder str = new StringBuilder();
+
+            Array.Sort(splitString);
             newString = splitString[0];
 
             for (int i = 0; i < splitString.Length; i++)
             {
-                var a = splitString[i].Length;
-                var b = newString.Length;
+                string outWord = splitString[i];
+                int a = splitString[i].Length;
+                int b = newString.Length;
 
-                if (a > b) newString = " " + splitString[i];                
+                if (a > b)
+                {
+                     str.Append(" " + outWord);
+                }
             }
-            return newString;
-        }
+            return (" " + str);
 
-        //г) Сформировать строку с помощью StringBuilder из самых длинных слов сообщения.
-        static void StringFromLongWords(string s)
-        {
-
+            
         }
     }
 }

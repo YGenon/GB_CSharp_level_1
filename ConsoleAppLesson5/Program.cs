@@ -22,7 +22,7 @@ namespace ConsoleAppLesson5
 
             #endregion
             
-            string message = "Кто ищет тот всегда найдет или не найдет скукатища";
+            string message = "Кто ищет тот всегда найдет или не кракозябра найдет и пропадет скукатища";
 
             Console.WriteLine("Дано сообщение: "+ message + "\n");
 
@@ -38,7 +38,12 @@ namespace ConsoleAppLesson5
             Console.WriteLine("\nЗадача в)\nНаходим самое длинное слово сообщения - \n");
             Console.WriteLine(Message.LongWords(message));
 
+            Console.WriteLine("\nЗадача г)\nФормируем строку с помощью StringBuilder из самых длинных слов сообщения: \n");
+            Console.WriteLine(Message.StringFromLongWords(message));
+
             Console.ReadKey();
+
+
             #region Задача 4 
 
             //*Задача ЕГЭ.
