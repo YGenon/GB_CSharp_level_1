@@ -9,6 +9,17 @@ namespace ConsoleAppLesson5
     static public class Message
     {
         static private string newString;
+        static string[] splitString;
+
+        /// <summary>
+        /// Создаем массив из слов сообщения
+        /// </summary>
+        /// <param name="s"></param>
+        static void MessageArray(string s)
+        {
+            char[] div = {' '};
+            splitString = s.Split(div);
+        }
 
 
         /// <summary>
@@ -18,15 +29,11 @@ namespace ConsoleAppLesson5
         /// <param name="a"></param>
         static public string OutWords(string s, int a)
         {
-
-            //newString = s + a;
-            char[] div = { ' ' };
-            string[] splitString = s.Split(div);
+            MessageArray(s);
+            
             for (int i = 0; i < splitString.Length; i++)
             {
-                if (splitString[i].Length <= a) newString += " " + splitString[i];
-
-                //Console.WriteLine(splitString[i]);
+                if (splitString[i].Length <= a) newString += " " + splitString[i];                
             }
 
             return newString;
@@ -39,18 +46,40 @@ namespace ConsoleAppLesson5
        /// <param name="s"></param>
        /// <param name="b"></param>
        /// <returns></returns>
-        static string DellWords(string s, string b)
+        static public string DellWords(string s, string b)
         {
-            
-
-            return newString;
+            MessageArray(s);
+            newString = " ";
+            for (int i = 0; i < splitString.Length; i++)
+            {
+                // узнаем длинну слова
+                var a = splitString[i].Length;
+                var lastSymbol = splitString[i].Substring(a-1, 1);
+                if (lastSymbol != b) newString += " " + splitString[i];
+            }
+            return newString;           
         }
 
 
-        //в) Найти самое длинное слово сообщения.
-        static void LongWords(string s)
+        
+        /// <summary>
+        /// Находим самое длинное слово сообщения
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        static public string LongWords(string s)
         {
+            MessageArray(s);
+            newString = splitString[0];
 
+            for (int i = 0; i < splitString.Length; i++)
+            {
+                var a = splitString[i].Length;
+                var b = newString.Length;
+
+                if (a > b) newString = " " + splitString[i];                
+            }
+            return newString;
         }
 
         //г) Сформировать строку с помощью StringBuilder из самых длинных слов сообщения.

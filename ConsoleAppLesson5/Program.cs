@@ -22,9 +22,21 @@ namespace ConsoleAppLesson5
 
             #endregion
             
-            string message = "Кто ищет тот всегда найдет";
+            string message = "Кто ищет тот всегда найдет или не найдет скукатища";
 
-            Console.WriteLine(Message.OutWords(message, 4));
+            Console.WriteLine("Дано сообщение: "+ message + "\n");
+
+            
+            int longMessage = 5;
+            Console.WriteLine("\nЗадача а)\nВыводим слова сообщения, которые содержат не более " + longMessage + " букв -\n");
+            Console.WriteLine(Message.OutWords(message, longMessage));
+
+            string symbol = "а";
+            Console.WriteLine("\nЗадача б)\nУдалить из сообщения все слова, которые заканчиваются на символ - \"" + symbol + "\" \n");
+            Console.WriteLine(Message.DellWords(message, symbol));
+
+            Console.WriteLine("\nЗадача в)\nНаходим самое длинное слово сообщения - \n");
+            Console.WriteLine(Message.LongWords(message));
 
             Console.ReadKey();
             #region Задача 4 
