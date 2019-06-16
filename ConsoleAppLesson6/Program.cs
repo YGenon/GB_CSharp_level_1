@@ -64,7 +64,7 @@ namespace ConsoleAppLesson6
                     string[] s = sr.ReadLine().Split(';'); // Добавляем в список новый экземпляр класса Student 
                     list.Add(new Student(s[0], s[1], s[2], s[3], s[4], int.Parse(s[5]), int.Parse(s[6]), int.Parse(s[7]), s[8]));
                     // Одновременно подсчитываем количество бакалавров и магистров 
-                    if (int.Parse(s[5]) < 5) bakalavr++; else magistr++;
+                    if (int.Parse(s[6]) < 5) bakalavr++; else magistr++;
                 }
                 catch (Exception e)
                 {
