@@ -8,9 +8,11 @@ namespace ConsoleAppLesson5
 {
     static public class Message
     {
-        static private string newString;
+        static string newString;
         static string[] splitString;
         static string lastSymbol;
+        static string outWord;
+
 
         /// <summary>
         /// Создаем массив из слов сообщения
@@ -24,7 +26,7 @@ namespace ConsoleAppLesson5
             return splitStringTmp;
         }
 
-
+        
         /// <summary>
         /// Выводит слова сообщения,  которые содержат не более n букв.
         /// </summary>
@@ -81,6 +83,8 @@ namespace ConsoleAppLesson5
             splitString = MessageArray(s);
             newString = splitString[0];
 
+            //if​ ​(​char​.​IsPunctuation​(splitString​[​i​]))​ splitString​.​Remove​(​i​,​1​);
+
             for (int i = 0; i < splitString.Length; i++)
            {
                 int a = splitString[i].Length;
@@ -102,23 +106,22 @@ namespace ConsoleAppLesson5
 
             StringBuilder str = new StringBuilder();
 
-            Array.Sort(splitString);
+            //Array.Sort(splitString);
             newString = splitString[0];
 
+            
             for (int i = 0; i < splitString.Length; i++)
             {
-                string outWord = splitString[i];
+                outWord = splitString[i];
                 int a = splitString[i].Length;
                 int b = newString.Length;
 
                 if (a > b)
                 {
-                     str.Append(" " + outWord);
-                }
+                    outWord = splitString[i];                    
+                }                
             }
-            return (" " + str);
-
-            
+            return (" " + str.Append(" " + outWord));            
         }
     }
 }
