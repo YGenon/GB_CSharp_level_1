@@ -11,17 +11,18 @@ namespace ConsoleAppLesson6
     {
         public string lastName;
         public string firstName;
-        public string university;
-        public string faculty;
-        public int course;
+        public string university;      
         public string department;
+        public string faculty;       
+        public int age;
+        public int course;
         public int group;
         public string city;
-        int age;
+
 
         // Создаем конструктор 
         public Student(string firstName, string lastName, string university,
-        string faculty, string department, int course, int age, int group, string city)
+        string faculty, string department, int age, int course, int group, string city)
         {
             this.lastName = lastName;
             this.firstName = firstName;
