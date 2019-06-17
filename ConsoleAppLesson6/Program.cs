@@ -90,7 +90,7 @@ namespace ConsoleAppLesson6
             //list.Sort(new Comparison<Student>(MyDelegat));
             
 
-            Console.WriteLine("Всего студентов:" + list.Count + "\n");
+            Console.WriteLine("Всего студентов:" + list.Count);
             //Console.WriteLine("Магистров:{0}", magistr);
             //Console.WriteLine("Бакалавров:{0}", bakalavr);
 
@@ -101,7 +101,7 @@ namespace ConsoleAppLesson6
 
             Console.WriteLine("\n в) Отсортировать список по возрасту студента\n");
 
-            Console.WriteLine("\nНе отсортированный\n");
+            Console.WriteLine("Не отсортированный\n");
             foreach (var v in list) Console.WriteLine($"{v.firstName} {v.age} лет");
 
             list.Sort(new Comparison<Student>(MyDelegat));
