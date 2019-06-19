@@ -9,7 +9,7 @@ namespace ConsoleAppLesson6
 {
     class Program
     {
-        
+        //Геннадий Ященко
         static void Main(string[] args)
         {
 
