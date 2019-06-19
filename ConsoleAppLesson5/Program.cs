@@ -74,7 +74,7 @@ namespace ConsoleAppLesson5
 
             Console.WriteLine("\nЗадача 4\n ");
 
-            StreamReader sr = new StreamReader("ege.txt");            
+            StreamReader sr = new StreamReader(@"D:\GIT\ConsoleAppLesson5\ege.txt");            
             int N = int.Parse(sr.ReadLine());            
             Elements[] a = new Elements[N];
 
