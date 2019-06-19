@@ -23,14 +23,17 @@ namespace ConsoleAppLesson6
             #endregion
 
             Console.WriteLine(" Задача 2 \n");
+
             DlgSaveFunc mySaveFunc = MinFunction.SaveFunc;
             DlgLoad myload = MinFunction.Load;
              
             int key;
+
             Console.WriteLine("Введите 1 - если вы хотите расчитать функцию с заданными параметрами");
             Console.WriteLine("Введите 2 - если вы хотите ввести параметры для расчета функции вручную");
             Console.WriteLine("Введите 0 - для выхода из меню");
 
+            // меню выбора 
             do {
                 Console.Write("Введите число: ");
                 key = int.Parse(Console.ReadLine());

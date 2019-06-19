@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace ConsoleAppLesson6
 {
     class MyCollection
-    {
-        //int bakalavr = 0;
-        //int magistr = 0;
+    {        
         static int course_5 = 0;
         static int course_6 = 0;
 
@@ -49,7 +47,7 @@ namespace ConsoleAppLesson6
                     string[] s = sr.ReadLine().Split(';'); // Добавляем в список новый экземпляр класса Student 
                     list.Add(new Student(s[0], s[1], s[2], s[3], s[4], int.Parse(s[5]), int.Parse(s[6]), int.Parse(s[7]), s[8]));
 
-                    // Одновременно подсчитываем количество бакалавров и магистров 
+                    // Одновременно подсчитываем количество студентов обучающихся на 5 и 6 курсах
 
                     if (int.Parse(s[6]) == 5) course_5++;
                     if (int.Parse(s[6]) == 6) course_6++;
