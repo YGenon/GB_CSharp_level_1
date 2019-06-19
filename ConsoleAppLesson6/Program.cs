@@ -58,7 +58,7 @@ namespace ConsoleAppLesson6
                         Console.Write("Введите конец отрезка: ");
                         b = Double.Parse(Console.ReadLine());
 
-                        Console.Write("Введите шаг: ");
+                        Console.Write("Введите шаг (например - 0,5): ");
 
                         c = Double.Parse(Console.ReadLine());
                     }
