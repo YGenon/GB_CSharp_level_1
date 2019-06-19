@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +9,7 @@ namespace ConsoleAppLesson6
 {
     class Program
     {
-       
+        
         static void Main(string[] args)
         {
 
@@ -23,9 +23,43 @@ namespace ConsoleAppLesson6
             #endregion
 
             Console.WriteLine(" Задача 2 \n");
-            MinFunction.SaveFunc("data.bin", -100, 100, 0.5);
-            Console.WriteLine(MinFunction.Load("data.bin")+"\n");
-            //Console.ReadKey();
+            DlgSaveFunc mySaveFunc = MinFunction.SaveFunc;
+            DlgLoad myload = MinFunction.Load;
+             
+            int key;
+            Console.WriteLine("Введите 1 - если вы хотите расчитать функцию с заданными параметрами");
+            Console.WriteLine("Введите 2 - если вы хотите ввести параметры для расчета функции вручную");
+            Console.WriteLine("Введите 0 - для выхода из меню");
+
+            do {
+                Console.Write("Введите число: ");
+                key = int.Parse(Console.ReadLine());
+                Console.WriteLine("");
+
+                if (key == 1)
+                {
+                    MinFunction.SaveFunc("data.bin", -100, 100, 0.5);
+                    Console.WriteLine(myload("data.bin") + "\n");
+                }
+
+                if (key == 2)
+                {                    
+                    Console.Write("Введите начало отрезка: ");
+                    Double a = Double.Parse(Console.ReadLine());
+
+                    Console.Write("Введите конец отрезка: ");
+                    Double b = Double.Parse(Console.ReadLine());
+
+                    Console.Write("Введите шаг: ");
+                    Double c = Double.Parse(Console.ReadLine());
+
+                    mySaveFunc("data.bin", a, b, c);
+                    Console.WriteLine(myload("data.bin") + "\n");
+                }
+            } while (key != 0);
+
+            Console.Write("Вы вышли из программы!\n\n");
+
             #endregion
 
 

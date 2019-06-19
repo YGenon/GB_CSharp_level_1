@@ -8,6 +8,10 @@ using System.IO;
 
 namespace ConsoleAppLesson6
 {
+    public delegate double DlgLoad(string a);
+    public delegate void DlgSaveFunc(string fileName, double a, double b, double h);
+
+
     class MinFunction
     {
         public static double F(double x)
@@ -43,8 +47,11 @@ namespace ConsoleAppLesson6
                 d = bw.ReadDouble();
                 if (d < min) min = d;
             }
-            bw.Close(); fs.Close(); return min;
+            bw.Close();
+            fs.Close();
+            return min;
         }
 
+        
     }
 }

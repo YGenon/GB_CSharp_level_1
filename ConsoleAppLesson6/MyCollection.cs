@@ -76,7 +76,7 @@ namespace ConsoleAppLesson6
 
             // подпункт б)
 
-            Console.WriteLine("\n б) подсчитать сколько студентов в возрасте от 18 до 20 лет на каком курсе учатся\n");
+            Console.WriteLine("\n\n б) подсчитать сколько студентов в возрасте от 18 до 20 лет на каком курсе учатся\n");
             int[] mass = new int[100];
 
             // Подсчитываем вхождение элементов 
@@ -90,7 +90,7 @@ namespace ConsoleAppLesson6
 
             // подпункт в)
 
-            Console.WriteLine("\n в) Отсортировать список по возрасту студента\n");
+            Console.WriteLine("\n\n в) Отсортировать список по возрасту студента\n");
 
             Console.WriteLine("Не отсортированный\n");
             foreach (var v in list) Console.WriteLine($"{v.firstName} {v.age} лет");
