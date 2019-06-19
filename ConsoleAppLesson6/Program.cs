@@ -28,6 +28,9 @@ namespace ConsoleAppLesson6
             DlgLoad myload = MinFunction.Load;
              
             int key;
+            Double c = 0;
+            Double a = 0;
+            Double b = 0;
 
             Console.WriteLine("Введите 1 - если вы хотите расчитать функцию с заданными параметрами");
             Console.WriteLine("Введите 2 - если вы хотите ввести параметры для расчета функции вручную");
@@ -35,7 +38,7 @@ namespace ConsoleAppLesson6
 
             // меню выбора 
             do {
-                Console.Write("Введите число: ");
+                Console.Write("Для выбора действия введите число: ");
                 key = int.Parse(Console.ReadLine());
                 Console.WriteLine("");
 
@@ -46,15 +49,24 @@ namespace ConsoleAppLesson6
                 }
 
                 if (key == 2)
-                {                    
-                    Console.Write("Введите начало отрезка: ");
-                    Double a = Double.Parse(Console.ReadLine());
+                {
+                    try
+                    {
+                        Console.Write("Введите начало отрезка: ");
+                        a = Double.Parse(Console.ReadLine());
 
-                    Console.Write("Введите конец отрезка: ");
-                    Double b = Double.Parse(Console.ReadLine());
+                        Console.Write("Введите конец отрезка: ");
+                        b = Double.Parse(Console.ReadLine());
 
-                    Console.Write("Введите шаг: ");
-                    Double c = Double.Parse(Console.ReadLine());
+                        Console.Write("Введите шаг: ");
+
+                        c = Double.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Вы ввели число не правильно. Введите данные заново! \n");
+                        continue;
+                    }
 
                     mySaveFunc("data.bin", a, b, c);
                     Console.WriteLine(myload("data.bin") + "\n");

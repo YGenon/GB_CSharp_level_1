@@ -37,8 +37,8 @@ namespace ConsoleAppLesson6
             // Создаем список студентов 
             DateTime dt = DateTime.Now;
 
-            //StreamReader sr = new StreamReader(@"E:\GIT\GB_CSharp_level_1\ConsoleAppLesson6\students_6.csv");
-            StreamReader sr = new StreamReader(@"D:\GIT\ConsoleAppLesson6\students_6.csv");
+            StreamReader sr = new StreamReader(@"E:\GIT\GB_CSharp_level_1\ConsoleAppLesson6\students_6.csv");
+            //StreamReader sr = new StreamReader(@"D:\GIT\ConsoleAppLesson6\students_6.csv");
 
             while (!sr.EndOfStream)
             {
