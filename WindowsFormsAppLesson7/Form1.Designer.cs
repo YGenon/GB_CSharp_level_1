@@ -83,15 +83,6 @@
             this.lblNumber.TabIndex = 3;
             this.lblNumber.Text = "label1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
-            // 
             // lblCount
             // 
             this.lblCount.AutoSize = true;
@@ -113,12 +104,12 @@
             // 
             // buhfnmToolStripMenuItem
             // 
-            this.buhfnmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.игратьToolStripMenuItem});
-            this.buhfnmToolStripMenuItem.Name = "buhfnmToolStripMenuItem";
-            this.buhfnmToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.buhfnmToolStripMenuItem.Text = "Меню";
-            this.buhfnmToolStripMenuItem.Click += new System.EventHandler(this.BuhfnmToolStripMenuItem_Click);
+            //this.buhfnmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            //this.игратьToolStripMenuItem});
+            //this.buhfnmToolStripMenuItem.Name = "buhfnmToolStripMenuItem";
+            //this.buhfnmToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            //this.buhfnmToolStripMenuItem.Text = "Меню";
+            //this.buhfnmToolStripMenuItem.Click += new System.EventHandler(this.BuhfnmToolStripMenuItem_Click);
             // 
             // игратьToolStripMenuItem
             // 

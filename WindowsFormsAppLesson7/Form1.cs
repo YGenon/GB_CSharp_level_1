@@ -24,7 +24,6 @@ namespace WindowsFormsAppLesson7
             this.Text = "Удвоитель";
 
         }
-
         
         private void BtnCommand1_Click(object sender, EventArgs e)
         {
@@ -41,16 +40,6 @@ namespace WindowsFormsAppLesson7
         private void BtnReset_Click(object sender, EventArgs e)
         {
             ClearData();
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BuhfnmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ИгратьToolStripMenuItem_Click(object sender, EventArgs e)
