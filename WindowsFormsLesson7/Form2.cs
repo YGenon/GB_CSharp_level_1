@@ -14,18 +14,13 @@ namespace WindowsFormsLesson7
     {
 
         int number;
-        int count = 1;
+        int count;
 
         public Form2()
         {
             InitializeComponent();
+            StartForm2();
 
-            this.Text = "Угадай число";
-            btnOK.Text = "OK";
-            lblCondition.Text = "За три попытки угадайте загаданное компьютером число от 1 до 100";
-            number = MyRandomNumber();
-            lblFirstNumber.Visible = false;
-            lblSecondNumber.Visible = false;
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
@@ -42,20 +37,62 @@ namespace WindowsFormsLesson7
             {
                 lblFirstNumber.Visible = true;
                 lblFirstNumber.Text = $"Первое ваше число - {txtInputNumber.Text}";
-                
+                CheckAnswer();
             }
 
             if (count == 2)
             {
+                
+
                 lblSecondNumber.Visible = true;
                 lblSecondNumber.Text = $"Второе ваше число - {txtInputNumber.Text}";
-                
+                CheckAnswer();
+            }
+
+            if (count == 3)
+            {
+                CheckAnswer();
+
+                if (number != (int.Parse(txtInputNumber.Text)))
+                {
+                    lblCondition.Text = $"Вы не угадали! Загаданное число - {number} \n Игра закончена, попробуйте еще раз.";
+                    HidLbl();
+                    btnOK.Visible = false;
+                    btnСontinue.Text = "Продолжить";
+                    btnСontinue.Visible = true;
+                }
             }
             count++;
-            CheckAnswer();
+            
 
         }
 
+        /// <summary>
+        /// Задаем начальные параметры Form2
+        /// </summary>
+        private void StartForm2()
+        {
+            this.Text = "Угадай число";            
+
+            lblCondition.Text = "За три попытки угадайте загаданное компьютером число от 1 до 100";
+
+            btnOK.Text = "OK";
+            btnOK.Visible = true;            
+
+            btnСontinue.Visible = false;
+
+            number = MyRandomNumber();
+
+            txtInputNumber.Text = " ";
+            txtInputNumber.Focus();
+            HidLbl();
+            count = 1;
+        }
+
+        /// <summary>
+        /// Генератор случайных чисел
+        /// </summary>
+        /// <returns></returns>
         private int MyRandomNumber()
         {
             Random r = new Random();            
@@ -63,7 +100,7 @@ namespace WindowsFormsLesson7
         }
 
         /// <summary>
-        /// Проверяем результат
+        /// Получаем результат сравнения чисел
         /// </summary>
         private void CheckAnswer()
         {
@@ -71,25 +108,44 @@ namespace WindowsFormsLesson7
             {
                 
                 lblCondition.Text = "Вы выиграли!!!";
-                lblFirstNumber.Visible = false;
-                lblSecondNumber.Visible = false;
-                txtInputNumber.Text = " ";
+                HidLbl();
+                btnOK.Visible = false;
+                btnСontinue.Text = "Продолжить";
+                btnСontinue.Visible = true;
             }
 
-            else if (number > (int.Parse(txtInputNumber.Text)))
+            else if (number > (int.Parse(txtInputNumber.Text)) && count < 3)
             {
-                lblCondition.Text = "Загаданное число больше вашего";
-                //ClearData();
-                //lblRandomNumber.Visible = false;
+                lblCondition.Text = "Загаданное число больше вашего";                
                 txtInputNumber.Text = " ";
                 txtInputNumber.Focus();
             }
-            else
+            else if (number < (int.Parse(txtInputNumber.Text)) && count < 3)
             {
                 lblCondition.Text = "Загаданное число меньше вашего";
                 txtInputNumber.Text = " ";
                 txtInputNumber.Focus();
-            }
+            }            
+        }
+
+        /// <summary>
+        /// Скрываем надписи с введенными играком числами
+        /// </summary>
+        private void HidLbl()
+        {
+            lblFirstNumber.Visible = false;
+            lblSecondNumber.Visible = false;
+        }
+
+
+        /// <summary>
+        /// Кнопка продолжения игры в случае проигрыша
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnСontinue_Click(object sender, EventArgs e)
+        {
+            StartForm2();
         }
     }
 }

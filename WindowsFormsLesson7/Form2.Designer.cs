@@ -33,6 +33,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.lblFirstNumber = new System.Windows.Forms.Label();
             this.lblSecondNumber = new System.Windows.Forms.Label();
+            this.btnСontinue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtInputNumber
@@ -83,11 +84,22 @@
             this.lblSecondNumber.TabIndex = 4;
             this.lblSecondNumber.Text = "label2";
             // 
+            // btnСontinue
+            // 
+            this.btnСontinue.Location = new System.Drawing.Point(115, 116);
+            this.btnСontinue.Name = "btnСontinue";
+            this.btnСontinue.Size = new System.Drawing.Size(80, 23);
+            this.btnСontinue.TabIndex = 5;
+            this.btnСontinue.Text = "button1";
+            this.btnСontinue.UseVisualStyleBackColor = true;
+            this.btnСontinue.Click += new System.EventHandler(this.BtnСontinue_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 182);
+            this.Controls.Add(this.btnСontinue);
             this.Controls.Add(this.lblSecondNumber);
             this.Controls.Add(this.lblFirstNumber);
             this.Controls.Add(this.btnOK);
@@ -108,5 +120,6 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label lblFirstNumber;
         private System.Windows.Forms.Label lblSecondNumber;
+        private System.Windows.Forms.Button btnСontinue;
     }
 }
