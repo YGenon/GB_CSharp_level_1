@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtInputNumber = new System.Windows.Forms.TextBox();
             this.lblCondition = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.lblFirstNumber = new System.Windows.Forms.Label();
             this.lblSecondNumber = new System.Windows.Forms.Label();
             this.btnСontinue = new System.Windows.Forms.Button();
+            this.lblTestShowRandomNumber = new System.Windows.Forms.Label();
+            this.txtInputNumber = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
-            // 
-            // txtInputNumber
-            // 
-            this.txtInputNumber.Location = new System.Drawing.Point(115, 66);
-            this.txtInputNumber.Name = "txtInputNumber";
-            this.txtInputNumber.Size = new System.Drawing.Size(80, 20);
-            this.txtInputNumber.TabIndex = 0;
-            this.txtInputNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCondition
             // 
@@ -94,17 +87,36 @@
             this.btnСontinue.UseVisualStyleBackColor = true;
             this.btnСontinue.Click += new System.EventHandler(this.BtnСontinue_Click);
             // 
+            // lblTestShowRandomNumber
+            // 
+            this.lblTestShowRandomNumber.AutoSize = true;
+            this.lblTestShowRandomNumber.Location = new System.Drawing.Point(212, 66);
+            this.lblTestShowRandomNumber.Name = "lblTestShowRandomNumber";
+            this.lblTestShowRandomNumber.Size = new System.Drawing.Size(35, 13);
+            this.lblTestShowRandomNumber.TabIndex = 6;
+            this.lblTestShowRandomNumber.Text = "label1";
+            // 
+            // txtInputNumber
+            // 
+            this.txtInputNumber.CausesValidation = false;
+            this.txtInputNumber.Location = new System.Drawing.Point(126, 59);
+            this.txtInputNumber.Name = "txtInputNumber";
+            this.txtInputNumber.Size = new System.Drawing.Size(52, 20);
+            this.txtInputNumber.TabIndex = 7;
+            this.txtInputNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 182);
+            this.Controls.Add(this.txtInputNumber);
+            this.Controls.Add(this.lblTestShowRandomNumber);
             this.Controls.Add(this.btnСontinue);
             this.Controls.Add(this.lblSecondNumber);
             this.Controls.Add(this.lblFirstNumber);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblCondition);
-            this.Controls.Add(this.txtInputNumber);
             this.Name = "Form2";
             this.Text = "Form2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
@@ -114,12 +126,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtInputNumber;
         private System.Windows.Forms.Label lblCondition;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label lblFirstNumber;
         private System.Windows.Forms.Label lblSecondNumber;
         private System.Windows.Forms.Button btnСontinue;
+        private System.Windows.Forms.Label lblTestShowRandomNumber;
+        private System.Windows.Forms.MaskedTextBox txtInputNumber;
     }
 }

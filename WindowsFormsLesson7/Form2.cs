@@ -31,7 +31,9 @@ namespace WindowsFormsLesson7
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{txtInputNumber.Text}  {number}");
+            
+            //проверяем введенный символ на его корректность
+            CheckInputData();
             
             if (count == 1)
             {
@@ -68,6 +70,16 @@ namespace WindowsFormsLesson7
         }
 
         /// <summary>
+        /// Проверяем введенные данные на их валидность
+        /// </summary>
+        private void CheckInputData()
+        {
+            
+            //while (!int.Parse(number));
+            //throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Задаем начальные параметры Form2
         /// </summary>
         private void StartForm2()
@@ -83,10 +95,19 @@ namespace WindowsFormsLesson7
 
             number = MyRandomNumber();
 
-            txtInputNumber.Text = " ";
+            txtInputNumber.Mask = "000";
             txtInputNumber.Focus();
+            txtInputNumber.Text = " ";
+            
             HidLbl();
             count = 1;
+
+            
+
+            //lblTestShowRandomNumber - закоментировать после отладки
+            lblTestShowRandomNumber.Visible = true;
+            lblTestShowRandomNumber.Text = $"Тест \n загадано - {Convert.ToString(number)}";
+
         }
 
         /// <summary>
@@ -96,7 +117,7 @@ namespace WindowsFormsLesson7
         private int MyRandomNumber()
         {
             Random r = new Random();            
-            return r.Next(1,100);;
+            return r.Next(1,101);;
         }
 
         /// <summary>
