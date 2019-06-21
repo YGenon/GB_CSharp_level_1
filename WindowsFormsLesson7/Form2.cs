@@ -15,50 +15,67 @@ namespace WindowsFormsLesson7
 
         int number;
         int count;
+        int InputNumber;
 
         public Form2()
         {
             InitializeComponent();
             StartForm2();
-
         }
 
+        /// <summary>
+        /// Закрытие Form2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form f = Application.OpenForms[0];
             f.Show();
         }
 
+        /// <summary>
+        /// Кнопка ОК
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnOK_Click(object sender, EventArgs e)
+        {              
+            //проверяем введенный символ на его корректность            
+            if (int.TryParse(txtInputNumber.Text, out int rezult) || !String.IsNullOrWhiteSpace(txtInputNumber.Text))
+                InputNumber = int.Parse(txtInputNumber.Text);
+
+            if (InputNumber > 0) ShowInputData();
+        }
+
+        /// <summary>
+        /// Показываем введенные пользователем числа и считаем количество попыток
+        /// </summary>
+        private void ShowInputData()
         {
-            
-            //проверяем введенный символ на его корректность
-            CheckInputData();
-            
             if (count == 1)
             {
-                lblFirstNumber.Visible = true;
-                lblFirstNumber.Text = $"Первое ваше число - {txtInputNumber.Text}";
-                CheckAnswer();
+                //lblFirstNumber.Text = $"Первое ваше число - {Convert.ToString(InputNumber)}";
+                string first = $"Первое ваше число: {Convert.ToString(InputNumber)}";
+                CheckAnswer(first);
             }
 
             if (count == 2)
-            {
-                
-
-                lblSecondNumber.Visible = true;
-                lblSecondNumber.Text = $"Второе ваше число - {txtInputNumber.Text}";
-                CheckAnswer();
+            {                
+                //lblSecondNumber.Text = $"Второе ваше число - {Convert.ToString(InputNumber)}";
+                string scnd = $"Второе ваше число: {Convert.ToString(InputNumber)}";
+                CheckAnswer(scnd);
             }
 
             if (count == 3)
             {
-                CheckAnswer();
+                string thrd = " ";
+                CheckAnswer(thrd);
 
-                if (number != (int.Parse(txtInputNumber.Text)))
+                if (number != InputNumber)
                 {
-                    lblCondition.Text = $"Вы не угадали! Загаданное число - {number} \n Игра закончена, попробуйте еще раз.";
-                    HidLbl();
+                    lblCondition.Text = $"Вы не угадали! Загаданное число - {number}";
+                    
                     btnOK.Visible = false;
                     btnСontinue.Text = "Продолжить";
                     btnСontinue.Visible = true;
@@ -66,17 +83,6 @@ namespace WindowsFormsLesson7
             }
             count++;
             
-
-        }
-
-        /// <summary>
-        /// Проверяем введенные данные на их валидность
-        /// </summary>
-        private void CheckInputData()
-        {
-            
-            //while (!int.Parse(number));
-            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -84,30 +90,25 @@ namespace WindowsFormsLesson7
         /// </summary>
         private void StartForm2()
         {
-            this.Text = "Угадай число";            
-
-            lblCondition.Text = "За три попытки угадайте загаданное компьютером число от 1 до 100";
+            this.Text = "Угадай число";
+            InputNumber = 0;
+            lblCondition.Text = "За 3 попытки угадайте загаданное компьютером число";
 
             btnOK.Text = "OK";
-            btnOK.Visible = true;            
-
-            btnСontinue.Visible = false;
+            btnOK.Visible = true;
+            
+            btnСontinue.Text = "Сброс";
 
             number = MyRandomNumber();
 
             txtInputNumber.Mask = "000";
             txtInputNumber.Focus();
-            txtInputNumber.Text = " ";
+            txtInputNumber.Text = "";
             
-            HidLbl();
-            count = 1;
-
+            lblFirstNumber.Text = "Первое ваше число";
+            lblSecondNumber.Text = "Второе ваше число";
+            count = 1;               
             
-
-            //lblTestShowRandomNumber - закоментировать после отладки
-            lblTestShowRandomNumber.Visible = true;
-            lblTestShowRandomNumber.Text = $"Тест \n загадано - {Convert.ToString(number)}";
-
         }
 
         /// <summary>
@@ -123,41 +124,35 @@ namespace WindowsFormsLesson7
         /// <summary>
         /// Получаем результат сравнения чисел
         /// </summary>
-        private void CheckAnswer()
+        private void CheckAnswer(string inputString)
         {
-            if (number == (int.Parse(txtInputNumber.Text)))
+            if (number == InputNumber)
             {
-                
                 lblCondition.Text = "Вы выиграли!!!";
-                HidLbl();
                 btnOK.Visible = false;
                 btnСontinue.Text = "Продолжить";
-                btnСontinue.Visible = true;
             }
 
-            else if (number > (int.Parse(txtInputNumber.Text)) && count < 3)
+            else if (number > InputNumber && count < 3)
             {
-                lblCondition.Text = "Загаданное число больше вашего";                
+                string endfraz = " - меньше загаданного";
+
+                if(count == 1)lblFirstNumber.Text = inputString + endfraz;
+                if(count == 2) lblSecondNumber.Text = inputString + endfraz;
                 txtInputNumber.Text = " ";
                 txtInputNumber.Focus();
             }
-            else if (number < (int.Parse(txtInputNumber.Text)) && count < 3)
+            else if (number < InputNumber && count < 3)
             {
-                lblCondition.Text = "Загаданное число меньше вашего";
+                string endfraz = " - больше загаданного";
+
+                if (count == 1) lblFirstNumber.Text = inputString + endfraz;
+                if (count == 2) lblSecondNumber.Text = inputString + endfraz;
                 txtInputNumber.Text = " ";
                 txtInputNumber.Focus();
-            }            
-        }
+            }
 
-        /// <summary>
-        /// Скрываем надписи с введенными играком числами
-        /// </summary>
-        private void HidLbl()
-        {
-            lblFirstNumber.Visible = false;
-            lblSecondNumber.Visible = false;
         }
-
 
         /// <summary>
         /// Кнопка продолжения игры в случае проигрыша
@@ -167,6 +162,11 @@ namespace WindowsFormsLesson7
         private void BtnСontinue_Click(object sender, EventArgs e)
         {
             StartForm2();
+        }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
