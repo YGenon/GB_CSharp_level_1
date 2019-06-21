@@ -29,7 +29,11 @@ namespace WindowsFormsLesson7
         {
 
         }
-
+        /// <summary>
+        /// Кнопка "+1"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCommand1_Click(object sender, EventArgs e)
         {
             lblNumber.Text = (int.Parse(lblNumber.Text) + 1).ToString();
@@ -37,6 +41,11 @@ namespace WindowsFormsLesson7
             if (genNumber > 0) CheckAnswer();
         }
 
+        /// <summary>
+        /// Кнопка "*2"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCommand2_Click(object sender, EventArgs e)
         {
             lblNumber.Text = (int.Parse(lblNumber.Text) * 2).ToString();

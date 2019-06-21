@@ -55,14 +55,12 @@ namespace WindowsFormsLesson7
         {
             if (count == 1)
             {
-                //lblFirstNumber.Text = $"Первое ваше число - {Convert.ToString(InputNumber)}";
                 string first = $"Первое ваше число: {Convert.ToString(InputNumber)}";
                 CheckAnswer(first);
             }
 
             if (count == 2)
-            {                
-                //lblSecondNumber.Text = $"Второе ваше число - {Convert.ToString(InputNumber)}";
+            {                       
                 string scnd = $"Второе ваше число: {Convert.ToString(InputNumber)}";
                 CheckAnswer(scnd);
             }
